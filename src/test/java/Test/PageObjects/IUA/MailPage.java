@@ -19,18 +19,19 @@ public class MailPage {
 
     }
 
-    @FindBy(xpath = "//a[text()='Создать письмо']/@href")
+    @FindBy(xpath = "//p[@class='make_message']//a")
     private WebElement createMailButton;
 
-    @FindBy(xpath = "//a[text()='Черновики']/@href")
+    @FindBy(xpath = "//ul[@class='list_underlined']//li[3]//a")
     private WebElement draftButton;
 
-    @FindBy(xpath = "//a[text()='Отправленные']/@href")
+    @FindBy(xpath = "//ul[@class='list_underlined']//li[2]//a")
     private WebElement sentButton;
 
 
 
-    public DraftPage MoveToDraft() {
+
+    public DraftPage moveToDraft() {
 
         draftButton.click();
 
@@ -39,13 +40,18 @@ public class MailPage {
 
     }
 
-    public DraftPage MoveToSent(){
+    public DraftPage moveToSent() {
 
         sentButton.click();
         return new DraftPage(driver);
     }
 
+    public CreateMailPage createMail() {
+        createMailButton.click();
 
+        return new CreateMailPage(driver);
+
+    }
 
 
 }

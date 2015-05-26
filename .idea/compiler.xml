@@ -26,5 +26,8 @@
         <module name="seleniumTask" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="seleniumTask" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

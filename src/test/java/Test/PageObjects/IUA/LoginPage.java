@@ -19,27 +19,31 @@ public class LoginPage {
     @FindBy(xpath = "//input[@name='pass']")
     private WebElement passwordField;
 
-    @FindBy(xpath = "input[@value=\"Войти\"]")
+    @FindBy(xpath = "//input[@value='Войти']")
     private WebElement okButton;
 
-    public LoginPage(WebDriver driver){
+    @FindBy(xpath = "//li[@class = 'right']//a")
+    private WebElement logoutButton;
+
+
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public MailPage loginAs(String username, String password){
 
+    public MailPage loginAs(String username, String password) {
         loginField.sendKeys(username);
         passwordField.sendKeys(password);
         okButton.click();
-
         return new MailPage(driver);
 
 
     }
 
-
-
+    public void quit() {
+        logoutButton.click();
+    }
 
 
 }

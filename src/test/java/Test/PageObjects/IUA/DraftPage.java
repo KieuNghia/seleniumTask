@@ -14,22 +14,41 @@ public class DraftPage {
 
     private WebDriver driver;
 
-    public DraftPage(WebDriver driver) {
+    public DraftPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//ul[@class='ho_menu ho_menu-main']//li[@class='ho_menu_item']/a")
+    private WebElement toMainPageButton;
 
-    public CreateLetterPage goToMail(String topic) {
+    public DraftPage checkLetterPresent(String topic){
+        driver.findElement(By.xpath("//span[text()='" + topic + "']"));
 
-        driver.findElement(By.xpath("//span[text()='" + topic + "']")).click();
-        return new CreateLetterPage(driver);
+    return new DraftPage(driver);
+    }
+
+    public CreateMailPage goToLetter(String topic){
+
+        driver.findElement(By.xpath("//span[text()='"+topic+"']")).click();
+
+        return new CreateMailPage(driver);
 
 
     }
 
+    public LoginPage goToMainPage(){
 
-}
+        toMainPageButton.click();
+
+        return new LoginPage(driver);
+
+    }
+
+
+
+
+    }
 
 
 
