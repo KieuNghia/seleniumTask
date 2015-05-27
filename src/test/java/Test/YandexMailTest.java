@@ -1,5 +1,6 @@
 package Test;
 
+import Drivers.DriverFactory;
 import Test.PageObjects.Yandex.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -23,7 +25,7 @@ public class YandexMailTest {
     private static final String LETTER_BODY = "onetwo";
     private static final String LETTER_DEST = "mnikto1@yahoo.com";
 
-    private WebDriver driver = new FirefoxDriver();
+    private WebDriver driver = null;
     MailPage mailPage = new MailPage(driver);
     LoginPage page = new LoginPage(driver);
     DraftPage draftPage = new DraftPage(driver);
@@ -32,7 +34,13 @@ public class YandexMailTest {
 
     @BeforeClass(description = "Start browser")
     public void startBrowser() {
-        driver.get(START_URL);
+        try {
+            driver = new DriverFactory().DriverBuilder("firefox");
+            driver.get(START_URL);
+        } catch (MalformedURLException e) {
+
+            e.printStackTrace();
+        }
     }
 
     @BeforeClass(dependsOnMethods = "startBrowser", description = "Add implicitly")
@@ -78,13 +86,13 @@ public class YandexMailTest {
 
 
     }
-/*
+
     @Test(dependsOnMethods = "sendLetter", description = "check letter in draft")
     public void checkLetterAbsentInDraft() {
 
 
         mailPage.moveToDraft();
-//        Assert.assertFalse(isElementPresent((By.xpath("//span[text()='" + LETTER_SUBJECT + "']"))));
+        //Assert.assertFalse(isElementPresent((By.xpath("//span[text()='" + LETTER_SUBJECT + "']"))));
 
 
     }
@@ -97,11 +105,12 @@ public class YandexMailTest {
         mailPage.moveToSent();
         Assert.assertTrue(isElementPresent((By.xpath("//span[text()='" + LETTER_SUBJECT + "']"))));
 
-    }*/
+    }
 
     @AfterClass
-    public void exit(){
+    public void exit() {
         draftPage.goToMainPage().quit();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.quit();
 
 
