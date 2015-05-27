@@ -78,13 +78,13 @@ public class YandexMailTest {
 
 
     }
-
+/*
     @Test(dependsOnMethods = "sendLetter", description = "check letter in draft")
     public void checkLetterAbsentInDraft() {
 
 
-        //mailPage.moveToDraft();
-        Assert.assertFalse(isElementPresent((By.xpath("//span[text()='" + LETTER_SUBJECT + "']"))));
+        mailPage.moveToDraft();
+//        Assert.assertFalse(isElementPresent((By.xpath("//span[text()='" + LETTER_SUBJECT + "']"))));
 
 
     }
@@ -97,15 +97,15 @@ public class YandexMailTest {
         mailPage.moveToSent();
         Assert.assertTrue(isElementPresent((By.xpath("//span[text()='" + LETTER_SUBJECT + "']"))));
 
-    }
+    }*/
 
-   /* @AfterClass
+    @AfterClass
     public void exit(){
         draftPage.goToMainPage().quit();
         driver.quit();
 
 
     }
-*/
+
 
 }

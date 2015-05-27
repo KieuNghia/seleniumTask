@@ -22,14 +22,12 @@ public class MailPage {
     @FindBy(xpath = "//span[text() = 'Написать']")
     private WebElement createMailButton;
 
-    @FindBy(xpath = "//a[@href='#draft']")
+    @FindBy(xpath = "//a[contains(@href, '#draft')]")
     private WebElement draftButton;
 
-    @FindBy(xpath = "//a[@href = '#sent']")
+    @FindBy(xpath = "//a[contains(@href, '#sent')]")
     private WebElement sentButton;
 
-    @FindBy(xpath = "//button[@data-action = 'dialog.save']")
-    private WebElement saveButton;
 
 
 
@@ -41,17 +39,13 @@ public class MailPage {
         return new DraftPage(driver);
     }
 
-   /* public DraftPage moveToDraft() {
+    public DraftPage moveToDraft() {
 
         draftButton.click();
-        draftButton.click();
-        draftButton.click();
-        draftButton.click();
-        draftButton.click();
-        draftButton.click();
+
 
         return new DraftPage(driver);
-*/
+    }
 
 
 

@@ -29,8 +29,8 @@ public class CreateMailPage {
     @FindBy(xpath = "//textarea[@id = 'compose-send']")
     private WebElement textArea;
 
-    @FindBy(xpath = "//a[@href='#draft']")
-    private WebElement saveDraftButton;
+    /*@FindBy(xpath = "//a[@href='#draft']")
+    private WebElement saveDraftButton;*/
 
     @FindBy(xpath = "//button[@id='compose-submit']")
     private WebElement sendButton;

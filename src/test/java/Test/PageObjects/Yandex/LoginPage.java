@@ -39,7 +39,6 @@ public class LoginPage {
     public MailPage loginAs(String username, String password){
 
         loginField.sendKeys(username);
-       // nextButton.click();
         passwordField.sendKeys(password);
         okButton.click();
 
