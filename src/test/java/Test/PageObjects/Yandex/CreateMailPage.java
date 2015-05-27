@@ -1,5 +1,6 @@
-package Test.PageObjects.IUA;
+package Test.PageObjects.Yandex;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,22 +18,28 @@ public class CreateMailPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"to\"]")
+    private final String LETTER_SUBJECT = "nichego";
+
+    @FindBy(xpath = "//div[contains(@class, 'mail-input')]//input[@type = 'text' and @data-nb]")
     private WebElement toField;
 
-    @FindBy(xpath = "//input[@name='subject']")
+    @FindBy(xpath = "//input[@id = 'compose-subj']")
     private WebElement subjectField;
 
-    @FindBy(xpath = "//*[@id=\"text\"]")
+    @FindBy(xpath = "//textarea[@id = 'compose-send']")
     private WebElement textArea;
 
-    @FindBy(xpath = "//input[@name = 'save_in_drafts']")
+    @FindBy(xpath = "//a[@href='#draft']")
     private WebElement saveDraftButton;
 
-    @FindBy(xpath = "//input[@name = 'send']")
+    @FindBy(xpath = "//button[@id='compose-submit']")
     private WebElement sendButton;
 
+    @FindBy (xpath = "//span[text() = 'Отменить'] " )
+    private WebElement cancelButton;
 
+    @FindBy(xpath = "//button[@data-action = 'dialog.save']")
+    private WebElement saveButton;
 
 
 
@@ -41,7 +48,10 @@ public class CreateMailPage {
         toField.sendKeys(to);
         subjectField.sendKeys(subject);
         textArea.sendKeys(text);
-        saveDraftButton.click();
+        cancelButton.click();
+        saveButton.click();
+
+
 
         return new MailPage(driver);
 
@@ -49,6 +59,8 @@ public class CreateMailPage {
     }
 
     public MailPage sendLetter(){
+
+       // driver.findElement(By.xpath("//span[text()='" + LETTER_SUBJECT + "']")).click();
 
         sendButton.click();
 
