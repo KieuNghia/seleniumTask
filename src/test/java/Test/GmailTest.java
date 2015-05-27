@@ -12,9 +12,7 @@ import org.testng.annotations.*;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by nghia on 24.05.2015.
- */
+
 public class GmailTest {
 
 

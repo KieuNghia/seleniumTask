@@ -4,9 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 
-/**
- * Created by nghia on 27.05.2015.
- */
+
 public class DriverFactory {
 
     public WebDriver driver;

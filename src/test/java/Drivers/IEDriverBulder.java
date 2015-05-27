@@ -3,9 +3,7 @@ package Drivers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-/**
- * Created by nghia on 27.05.2015.
- */
+
 public class IEDriverBulder {
 
 
