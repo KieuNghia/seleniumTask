@@ -1,6 +1,5 @@
 package Test;
 
-import Drivers.DriverFactory;
 import Test.PageObjects.Gmail.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +25,7 @@ public class GmailTest {
     private static final String LETTER_DEST = "nghia_hiep04@yahoo.com";
     private static final String ACCOUNT_BUTTON ="";
 
-    private WebDriver driver = null;
+    private WebDriver driver = new FirefoxDriver();
     MailPage mailPage = new MailPage(driver);
     LoginPage page = new LoginPage(driver);
     DraftPage draftPage = new DraftPage(driver);
@@ -35,13 +34,9 @@ public class GmailTest {
 
     @BeforeClass(description = "Start browser")
     public void startBrowser() {
-        try
-        {
-        driver =  new DriverFactory().DriverBuilder("firefox");
-        driver.get(START_URL);
-    }catch (MalformedURLException e ){
 
-        e.printStackTrace();}
+        driver.get(START_URL);
+
     }
 
     @BeforeClass(dependsOnMethods = "startBrowser", description = "Add implicitly")

@@ -1,15 +1,14 @@
 package Test;
 
-import Drivers.DriverFactory;
 import Test.PageObjects.Yandex.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 
-import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -25,7 +24,8 @@ public class YandexMailTest {
     private static final String LETTER_BODY = "onetwo";
     private static final String LETTER_DEST = "mnikto1@yahoo.com";
 
-    private WebDriver driver = null;
+    private WebDriver driver = new FirefoxDriver();
+
     MailPage mailPage = new MailPage(driver);
     LoginPage page = new LoginPage(driver);
     DraftPage draftPage = new DraftPage(driver);
@@ -34,14 +34,11 @@ public class YandexMailTest {
 
     @BeforeClass(description = "Start browser")
     public void startBrowser() {
-        try {
-            driver = new DriverFactory().DriverBuilder("firefox");
-            driver.get(START_URL);
-        } catch (MalformedURLException e) {
 
-            e.printStackTrace();
-        }
+        driver.get(START_URL);
+
     }
+
 
     @BeforeClass(dependsOnMethods = "startBrowser", description = "Add implicitly")
     public void addImplicitly() {
@@ -56,12 +53,12 @@ public class YandexMailTest {
 
     @Test(description = "login to mail")
     public void login() {
-
         page.loginAs(LOGIN, PASSWORD);
         Assert.assertTrue(isElementPresent(By.xpath("//span[text()='testmailbox.test@yandex.ru']")));
 
 
     }
+
 
     @Test(dependsOnMethods = "login", description = "create letter")
     public void createLetter() {

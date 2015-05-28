@@ -1,6 +1,5 @@
 package Test;
 
-import Drivers.DriverFactory;
 import Test.PageObjects.IUA.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 
-import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -25,7 +23,7 @@ public class IUAtest {
     private static final String LETTER_BODY = "onetwo";
     private static final String LETTER_DEST = "mnikto1@yahoo.com";
 
-    private WebDriver driver = null;
+    private WebDriver driver = new FirefoxDriver();
 
     MailPage mailPage = new MailPage(driver);
     LoginPage page = new LoginPage(driver);
@@ -35,13 +33,8 @@ public class IUAtest {
 
     @BeforeClass(description = "Start browser")
     public void startBrowser() {
-        try
-        {
-            driver =  new DriverFactory().DriverBuilder("firefox");
-            driver.get(START_URL);
-        }catch (MalformedURLException e ){
 
-            e.printStackTrace();}
+        driver.get(START_URL);
     }
 
 
