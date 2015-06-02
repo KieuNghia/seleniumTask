@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/IUAtest.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/Gmail/CreateMailPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/Gmail/LoginPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/Gmail/MailPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/IUA/CreateMailPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/IUA/LoginPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/IUA/MailPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/Yandex/CreateMailPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/Yandex/LoginPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/java/Test/PageObjects/Yandex/MailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/gmail/CreateMailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/gmail/LoginPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/gmail/MailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/iUA/CreateMailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/iUA/LoginPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/iUA/MailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/yandex/CreateMailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/yandex/LoginPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/pageObjects/yandex/MailPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/tests/IUAtest.java" charset="UTF-8" />
   </component>
 </project>
